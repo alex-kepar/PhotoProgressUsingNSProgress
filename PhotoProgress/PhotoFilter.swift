@@ -33,7 +33,7 @@ class PhotoFilter {
             
             let ciContext = CIContext(options: [:])
             
-            let outputCGImage = ciContext.createCGImage(outputCIImage, fromRect: outputCIImage.extent)
+            let outputCGImage = ciContext.createCGImage(outputCIImage!, fromRect: outputCIImage!.extent)
 
             outputImage = UIImage(CGImage: outputCGImage)
         }
