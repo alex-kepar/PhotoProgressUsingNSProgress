@@ -9,7 +9,6 @@
 
 import UIKit
 
-
 /**
     The KVO context used for all `PhotosViewController` instances. This provides a stable
     address to use as the context parameter for the KVO observation methods.
@@ -34,20 +33,21 @@ class PhotosViewController: UIViewController {
     /// The overall progress for the import that is shown to the user
     private var overallProgress: NSProgress? {
         willSet {
-            guard let formerProgress = overallProgress else { return }
+            guard let formerProgress = overallProgress where IS_USING_KVO else { return }
 
             for overalProgressObservedKey in overalProgressObservedKeys {
                 formerProgress.removeObserver(self, forKeyPath: overalProgressObservedKey, context: &photosViewControllerObservationContext)
             }
+
         }
 
         didSet {
-            if let newProgress = overallProgress {
+            if let newProgress = overallProgress where IS_USING_KVO {
                 for overalProgressObservedKey in overalProgressObservedKeys {
                     newProgress.addObserver(self, forKeyPath: overalProgressObservedKey, options: [], context: &photosViewControllerObservationContext)
                 }
             }
-            
+
             updateProgressView()
             updateToolbar()
         }

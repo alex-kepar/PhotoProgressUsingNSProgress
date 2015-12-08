@@ -24,14 +24,13 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     
     var photo: Photo? {
         willSet {
-            if let formerPhoto = photo {
-                formerPhoto.removeObserver(self, forKeyPath: fractionCompletedKeyPath, context: &photoCollectionViewCellObservationContext)
-                formerPhoto.removeObserver(self, forKeyPath: imageKeyPath, context: &photoCollectionViewCellObservationContext)
-            }
+            guard let formerPhoto = photo where IS_USING_KVO else { return }
+            formerPhoto.removeObserver(self, forKeyPath: fractionCompletedKeyPath, context: &photoCollectionViewCellObservationContext)
+            formerPhoto.removeObserver(self, forKeyPath: imageKeyPath, context: &photoCollectionViewCellObservationContext)
         }
 
         didSet {
-            if let newPhoto = photo {
+            if let newPhoto = photo where IS_USING_KVO {
                 newPhoto.addObserver(self, forKeyPath: fractionCompletedKeyPath, options: [], context: &photoCollectionViewCellObservationContext)
                 newPhoto.addObserver(self, forKeyPath: imageKeyPath, options: [], context: &photoCollectionViewCellObservationContext)
             }

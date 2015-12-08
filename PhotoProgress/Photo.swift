@@ -54,6 +54,7 @@ class Photo: NSObject {
     private func reportError(error: NSError) {
         if error.domain != NSCocoaErrorDomain || error.code != NSUserCancelledError {
             print("Error importing photo: \(error.localizedDescription)")
+            print("for folder: \(self.imageURL)")
         }
     }
     

@@ -17,11 +17,17 @@ class Album: NSObject {
     // MARK: Initializers
 
     override init () {
-        guard let imageURLs = NSBundle.mainBundle().URLsForResourcesWithExtension("jpg", subdirectory: "Photos") else {
-            fatalError("Unable to load photos")
+
+        var photosCombiner: [Photo] = []
+
+        for (var photoBlockId = 0; photoBlockId < 10; photoBlockId++) {
+            let blockSubdirectory = String(format: "Photos/block copy %02d", photoBlockId)
+            guard let imageURLs = NSBundle.mainBundle().URLsForResourcesWithExtension("jpg", subdirectory: blockSubdirectory) else {
+                fatalError("Unable to load photos")
+            }
+            photosCombiner = photosCombiner + imageURLs.map { Photo(URL: $0) }
         }
-        
-        photos = imageURLs.map { Photo(URL: $0) }
+        photos = photosCombiner
     }
     
     func importPhotos() -> NSProgress {

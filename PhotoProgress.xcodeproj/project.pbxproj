@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		222517651C171DF8002E9CB0 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222517641C171DF8002E9CB0 /* Globals.swift */; };
 		312329641B0FF89800C3BE18 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312329601B0FF89800C3BE18 /* Album.swift */; };
 		312329651B0FF89800C3BE18 /* PhotoDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312329611B0FF89800C3BE18 /* PhotoDownload.swift */; };
 		312329661B0FF89800C3BE18 /* PhotoFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312329621B0FF89800C3BE18 /* PhotoFilter.swift */; };
@@ -23,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		222517641C171DF8002E9CB0 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		22BDFA2D1C15E97C007DE46E /* PhotoProgress copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "PhotoProgress copy-Info.plist"; path = "/Users/oleksandr_kiporenko/GitRoot/PhotoProgressUsingNSProgress/PhotoProgress copy-Info.plist"; sourceTree = "<absolute>"; };
 		312329601B0FF89800C3BE18 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		312329611B0FF89800C3BE18 /* PhotoDownload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDownload.swift; sourceTree = "<group>"; };
 		312329621B0FF89800C3BE18 /* PhotoFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoFilter.swift; sourceTree = "<group>"; };
@@ -58,6 +61,7 @@
 				3E87FC771B1E623000B07A78 /* README.md */,
 				3157CF941B0FCFE30012CA05 /* PhotoProgress */,
 				3157CF931B0FCFE30012CA05 /* Products */,
+				22BDFA2D1C15E97C007DE46E /* PhotoProgress copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +76,7 @@
 		3157CF941B0FCFE30012CA05 /* PhotoProgress */ = {
 			isa = PBXGroup;
 			children = (
+				222517641C171DF8002E9CB0 /* Globals.swift */,
 				3157CF951B0FCFE30012CA05 /* AppDelegate.swift */,
 				BFED0B701B167049006F80C3 /* View Controllers */,
 				BFED0B6D1B166F73006F80C3 /* Album */,
@@ -193,6 +198,7 @@
 				3157CF981B0FCFE30012CA05 /* PhotosCollectionViewController.swift in Sources */,
 				312329671B0FF89800C3BE18 /* PhotoImport.swift in Sources */,
 				312329641B0FF89800C3BE18 /* Album.swift in Sources */,
+				222517651C171DF8002E9CB0 /* Globals.swift in Sources */,
 				3157CF961B0FCFE30012CA05 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
