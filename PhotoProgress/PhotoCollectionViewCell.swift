@@ -27,12 +27,16 @@ class PhotoCollectionViewCell: UICollectionViewCell {
             guard let formerPhoto = photo where IS_USING_KVO else { return }
             formerPhoto.removeObserver(self, forKeyPath: fractionCompletedKeyPath, context: &photoCollectionViewCellObservationContext)
             formerPhoto.removeObserver(self, forKeyPath: imageKeyPath, context: &photoCollectionViewCellObservationContext)
+            print("removed observer for \(formerPhoto.imageURL.lastPathComponent)")
         }
 
         didSet {
             if let newPhoto = photo where IS_USING_KVO {
                 newPhoto.addObserver(self, forKeyPath: fractionCompletedKeyPath, options: [], context: &photoCollectionViewCellObservationContext)
                 newPhoto.addObserver(self, forKeyPath: imageKeyPath, options: [], context: &photoCollectionViewCellObservationContext)
+                print("added observer for \(newPhoto.imageURL.lastPathComponent)")
+            } else {
+                print("skipped observation for cell")
             }
 
             updateImageView()
